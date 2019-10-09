@@ -7,9 +7,7 @@ INCLUDE(version)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
 
-FIND_PACKAGE(PythonInterp 2)
-
-FIND_PROGRAM(CTYPESGEN_FOUND ctypesgen.py)
+FIND_PACKAGE(PythonInterp 3)
 
 FIND_PACKAGE(BISON 3)
 FIND_PACKAGE(FLEX)
@@ -101,8 +99,6 @@ GENERATE_AST_FILE(c_visitor_impl c/GraphQLAstForEachConcreteType.h)
 GENERATE_AST_FILE(cxx_json_visitor_header JsonVisitor.h.inc)
 
 GENERATE_AST_FILE(cxx_json_visitor_impl JsonVisitor.cpp.inc)
-
-ADD_SUBDIRECTORY(python)
 
 OPTION(test "Build tests." OFF)
 
